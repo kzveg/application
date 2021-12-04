@@ -1,0 +1,17 @@
+.container{
+    background-image: url('https://i.makeagif.com/media/1-12-2021/YsWRDA.gif');
+    background-size:contain;
+}
+
+.row{
+    padding-top: 25px;
+}
+
+.dropdown{
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style-type: none; 
+   }
