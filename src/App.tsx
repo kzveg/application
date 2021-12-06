@@ -6,10 +6,11 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import InputName from './components/InputName';
-import SearchAlboms from './components/SearchAlboms'
+import SearchAlbums from './components/SearchAlbums'
+import PagePagination from './components/PagePagination'
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Container >
@@ -18,12 +19,17 @@ function App() {
             <InputName />
           </Col>
           <Col>
-            <SearchAlboms />
+            <SearchAlbums />
           </Col>
         </Row>
         <Row>
           <Col >
             <ListPhoto />
+          </Col>
+        </Row>
+        <Row>
+          <Col >
+            <PagePagination />
           </Col>
         </Row>
       </Container>

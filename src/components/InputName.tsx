@@ -1,28 +1,21 @@
-import React, { useState, Dispatch } from "react";
+import React, { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
-import { useTypedSelector } from "../hooks/useTypeSelector";
 import { useDispatch } from "react-redux";
-import { PhtotAction } from "../types/photo"
 import { setFilter } from "../actions/actions"
 
 
 
 
-const InputName = () => {
-
-    // const photoData = useTypedSelector(state => state.photo.data)
+const InputName: React.FC = () => {
 
     const [input, setInput] = useState('')
-    // const [stateData, setStateData] = useState(photoData)
     const dispatch = useDispatch()
 
-    function handlyChange(event: any) {
+    const handlyChange = (event: any) => {
         setInput(event.target.value);
     }
-
-
 
     const getFilterData = () => {
         dispatch(setFilter(input));

@@ -28,3 +28,7 @@ export const setFilter = (item: string) => (dispatch: Dispatch<any>) => {
 export const showAlbom = (item: number) => (dispatch: Dispatch<any>) => {
     dispatch({ type: 'SET_ALBOM', payload: item })
 };
+
+export const pageData = (item: Object[]) => (dispatch: Dispatch<any>) => {
+    dispatch({ type: 'SET_PAGE', payload: item })
+};

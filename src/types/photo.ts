@@ -4,6 +4,7 @@ export interface PhotoState {
     filter: Array<number>;
     currentFilter: string;
     albomId: number | null;
+    page: Object[];
 }
 
 export interface PhtotAction {

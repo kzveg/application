@@ -5,7 +5,8 @@ const initialState: PhotoState = {
     data: [],
     filter: [],
     currentFilter: '',
-    albomId: null
+    albomId: null,
+    page: []
 }
 
 export const photoReducer = (state = initialState, action: PhtotAction): PhotoState => {
@@ -15,7 +16,8 @@ export const photoReducer = (state = initialState, action: PhtotAction): PhotoSt
                 data: action.payload.data,
                 filter: action.payload.filter,
                 currentFilter: '',
-                albomId: null
+                albomId: null,
+                page: []
             }
         case 'SET_FILTER':
             return {
@@ -27,6 +29,11 @@ export const photoReducer = (state = initialState, action: PhtotAction): PhotoSt
             return {
                 ...state,
                 albomId: action.payload
+            }
+        case 'SET_PAGE':
+            return {
+                ...state,
+                page: action.payload
             }
         default: return state
     }
