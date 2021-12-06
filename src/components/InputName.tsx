@@ -7,13 +7,12 @@ import { setFilter } from "../actions/actions"
 
 
 
-
 const InputName: React.FC = () => {
 
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState<string>('')
     const dispatch = useDispatch()
 
-    const handlyChange = (event: any) => {
+    const handlyChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setInput(event.target.value);
     }
 

@@ -1,6 +1,14 @@
 import { PhtotAction, PhotoState } from '../types/photo'
 
 
+export const GET_FIRST_DATA = 'GET_FIRST_DATA'
+export const SET_FILTER = 'SET_FILTER'
+export const SET_ALBOM = 'SET_ALBOM'
+export const SET_PAGE = 'SET_PAGE'
+
+
+
+
 const initialState: PhotoState = {
     data: [],
     filter: [],
@@ -9,9 +17,9 @@ const initialState: PhotoState = {
     page: []
 }
 
-export const photoReducer = (state = initialState, action: PhtotAction): PhotoState => {
+export const photoReducer = (state: PhotoState = initialState, action: PhtotAction): PhotoState => {
     switch (action.type) {
-        case 'GET_FIRST_DATA':
+        case GET_FIRST_DATA:
             return {
                 data: action.payload.data,
                 filter: action.payload.filter,
@@ -19,18 +27,18 @@ export const photoReducer = (state = initialState, action: PhtotAction): PhotoSt
                 albomId: null,
                 page: []
             }
-        case 'SET_FILTER':
+        case SET_FILTER:
             return {
                 ...state,
                 currentFilter: action.payload,
                 albomId: null
             }
-        case 'SET_ALBOM':
+        case SET_ALBOM:
             return {
                 ...state,
                 albomId: action.payload
             }
-        case 'SET_PAGE':
+        case SET_PAGE:
             return {
                 ...state,
                 page: action.payload

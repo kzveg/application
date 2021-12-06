@@ -6,14 +6,14 @@ import Card from 'react-bootstrap/Card'
 
 const ListPhoto: React.FC = () => {
 
+    const photoData: ItemData[] = useTypedSelector(state => state.photo.data)
+    const currentFilter: string = useTypedSelector(state => state.photo.currentFilter)
+    const albomFilter: number | null = useTypedSelector(state => state.photo.albomId)
+    const pageData: ItemData[] = useTypedSelector(state => state.photo.page)
+    const page1: ItemData[] = photoData.filter((el: ItemData) => el.id <= 5)
     let photo
-    const photoData = useTypedSelector(state => state.photo.data)
-    const currentFilter = useTypedSelector(state => state.photo.currentFilter)
-    const albomFilter = useTypedSelector(state => state.photo.albomId)
-    const pageData = useTypedSelector(state => state.photo.page)
-    const page1: any[] = photoData.filter((el: ItemData) => el.id <= 5)
-
-    const [cardData, setCardData] = useState(photoData);
+    const [cardData, setCardData] = useState<ItemData[]>(photoData);
+    console.log(pageData);
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const ListPhoto: React.FC = () => {
     }, [photoData])
 
     useEffect(() => {
-        const value = photoData.filter(function (el: ItemData) {
+        const value: ItemData[] = photoData.filter(function (el: ItemData) {
             return el.title === currentFilter
         });
         if (value.length > 0) {
@@ -35,7 +35,7 @@ const ListPhoto: React.FC = () => {
 
 
     useEffect(() => {
-        const value2 = photoData.filter(function (el: ItemData) {
+        const value2: ItemData[] = photoData.filter(function (el: ItemData) {
             return el.albumId === albomFilter
         })
         if (albomFilter) {
@@ -48,7 +48,7 @@ const ListPhoto: React.FC = () => {
     if (photoData) {
         photo = cardData.map(function (el: ItemData) {
             return <li >
-                <Card style={{ width: '15rem' }}>
+                <Card style={{ width: '15rem' }} className='card'>
                     <Card.Img variant="top" src={el.url} />
                     <Card.Body>
                         <Card.Text>
